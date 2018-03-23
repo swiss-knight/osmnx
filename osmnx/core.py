@@ -543,6 +543,11 @@ def get_osm_filter(network_type):
     # to download all ways, including private-access ones, just filter out
     # everything not currently in use
     filters['all_private'] = '["area"!~"yes"]["highway"!~"proposed|construction|abandoned|platform|raceway"]'
+    
+    # to download all ways, including private-access ones and railways, just filter out
+    # everything not currently in use
+    filters['all_private_and_rails'] = ('["area"!~"yes"]["highway"!~"proposed|construction|abandoned|platform|raceway"]'
+                                        '["railway"!~"abandoned|construction|disused|subway"]')
 
     # no filter, needed for infrastructures other than "highway"
     filters['none'] = ''
